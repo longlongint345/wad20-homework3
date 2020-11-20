@@ -48,7 +48,7 @@ export default {
   }
   .main-container {
     width: 50%;
-    height: 100%;
+    min-height: 100%;
     margin: auto auto;
     padding: 90px 15px 15px 15px;
     background-color: white;
