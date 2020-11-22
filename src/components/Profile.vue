@@ -29,14 +29,6 @@ export default {
 </script>
 
 <style scoped>
-  .profile {
-      width: 45%;
-      display: inline-block;
-      border: 1px solid #dedede;
-      border-radius: 5px;
-      text-align: center;
-      margin: 1%;
-  }
   .profile img{
       width: 75px;
       height: 75px;
