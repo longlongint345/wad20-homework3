@@ -10,8 +10,8 @@
     <div class="avatar-container">
       <img class="avatar" :src="profile.avatar" @click="toggleDropdown">
       <div v-if="isDropdownVisible" class="dropdown-content">
-        <p id="namefield">{{profile.firstname}} {{profile.lastname}}</p>
-        <p id="emailField">{{profile.email}}</p>
+        <p id="namefield">{{profile.firstname | capitalize}} {{profile.lastname | capitalize}}</p>
+        <p id="emailField">{{profile.email | toLowerCase}}</p>
         <router-link to="/browse">Browse</router-link>
         <router-link to="/">Log out</router-link>
       </div>
@@ -32,6 +32,13 @@ export default {
   computed : {
     profile : function (){
       return this.$store.getters.getProfile;
+    }
+  },
+  filters: {
+    toLowerCase: function (value){
+      if (!value) return '';
+      value = value.toString();
+      return value.toLowerCase();
     }
   },
   methods: {

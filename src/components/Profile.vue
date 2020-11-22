@@ -1,8 +1,9 @@
 <template>
   <div class="profile">
     <img :src="avatar" alt="Profile author">
-    <h2> {{firstname}} {{lastname}} </h2>
-    <button type="button" name="follow" class="follow-button" @click="toggleFollowButton" v-bind:class="{followed : isFollowed}">Follow</button>
+    <h2> {{firstname | capitalize}} {{lastname | capitalize}} </h2>
+    <button type="button" name="follow" class="follow-button" @click="toggleFollowButton" v-bind:class="{followed : isFollowed}">
+      {{ followButtonText }}</button>
   </div>
 </template>
 
@@ -19,6 +20,13 @@ export default {
       isFollowed: false
     }
   },
+  computed : {
+    followButtonText(){
+      if (this.isFollowed) return "Followed";
+      else return "Follow";
+    }
+  },
+
   methods : {
     toggleFollowButton(){
         this.isFollowed = !this.isFollowed;

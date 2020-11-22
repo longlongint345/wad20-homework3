@@ -5,7 +5,6 @@
       <div v-for="(post, index) in posts" :key="index">
         <Post v-bind:author="post.author" v-bind:createTime="post.createTime" v-bind:text="post.text" v-bind:media="post.media" v-bind:likes="post.likes"/>
       </div>
-      <Post/>
 
     </section>
   </div>

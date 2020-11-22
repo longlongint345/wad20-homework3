@@ -3,7 +3,7 @@
     <div class="post-author">
           <span class="post-author-info">
             <img :src="author.avatar" alt="Post author">
-            <small>{{author.firstname}} {{ author.lastname }} </small>
+            <small>{{author.firstname | capitalize}} {{ author.lastname | capitalize}} </small>
           </span>
       <small>{{ createTime }}</small>
     </div>
