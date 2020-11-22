@@ -20,7 +20,8 @@ const routes = [
 const store = new Vuex.Store({
   state: {
     posts: [],
-    profile: {}
+    profile: {},
+    profiles: []
   },
   mutations: {
     setPosts(state, posts){
@@ -28,6 +29,9 @@ const store = new Vuex.Store({
     },
     setProfile(state, profile){
       state.profile = profile;
+    },
+    setProfiles(state, profiles){
+      state.profiles = profiles;
     }
   },
   getters: {
@@ -36,6 +40,9 @@ const store = new Vuex.Store({
     },
     getProfile(state){
       return state.profile;
+    },
+    getProfiles(state){
+      return state.profiles;
     }
   },
   actions: {
@@ -51,6 +58,13 @@ const store = new Vuex.Store({
         commit("setProfile", response.data);
       }).catch(error => {
         alert("Error! Cannot fetch profile data. " + error);
+      });
+    },
+    fetchProfiles({commit}){
+      axios.get("https://private-anon-2fdffe98c5-wad20postit.apiary-mock.com/profiles").then(response => {
+        commit("setProfiles", response.data);
+      }).catch(error => {
+        alert("Error! Cannot fetch profiles data. " + error);
       });
     }
   }
